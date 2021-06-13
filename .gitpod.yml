@@ -1,10 +1,13 @@
+image:
+  file: .gitpod.Dockerfile
+
 tasks:
   - before: |
       ps -p $SSH_AGENT_PID > /dev/null || eval "$(ssh-agent -s)"
       ssh-add <(echo "$GERRIT_PRIVATE_KEY" | openssl enc -a -d)
       ssh-keyscan -p 29418 asterix-gerrit.ics.uci.edu > ~/.ssh/known_hosts
       chmod 644 ~/.ssh/known_hosts
-  - init: |
+    init: |
       scp -p -P 29418 cameron@asterix-gerrit.ics.uci.edu:hooks/commit-msg .git/hooks/
       chmod u+x .git/hooks/commit-msg
       git remote add review ssh://cameron@asterix-gerrit.ics.uci.edu:29418/asterixdb.git
