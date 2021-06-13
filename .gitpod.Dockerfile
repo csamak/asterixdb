@@ -4,4 +4,4 @@ RUN sudo apt-get update \
     && sudo rm -rf /var/lib/apt/lists/* \
     && pip3 install projector-installer \
     && mkdir -p ~/.projector/configs # prevent license prompt \
-    && projector ide autoinstall --config-name 'idea-ue' --ide-name 'IntelliJ IDEA Ultimate 2021.1.2'1212
+    && projector ide autoinstall --config-name 'idea-ue' --ide-name 'IntelliJ IDEA Ultimate 2021.1.2'
