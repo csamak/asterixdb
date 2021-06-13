@@ -1,0 +1,15 @@
+tasks:
+  - init: |
+      sudo apt-get -qq update
+      sudo apt-get -qq install -y python3 python3-pip python3-crypto libxrender1 libxext6 libxtst6 libfreetype6 libxi6
+      pip3 install projector-installer
+      mkdir -p ~/.projector/configs # prevents license prompt
+      projector install 'IntelliJ IDEA Ultimate 2021.1.2' --no-auto-run
+      mvn package -DskipTests # Build AsterixDB
+
+ports:
+  - port: 6942
+    onOpen: ignore
+    visibility: private
+  - port: 9999
+    visibility: private
